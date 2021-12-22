@@ -1,17 +1,14 @@
 function pairSum(nums, target) {
   // Insert code here;
-  let res = [];
-    let indexes = [];
-    for (let i = 0; i < nums.length - 1; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (target === nums[i] + nums[j] && !indexes.includes(i) && !indexes.includes(j)) {
-                res.push([nums[i], nums[j]]);
-                indexes.push(i);
-                indexes.push(j);
-            }
-        }
+  if (nums.length <= 1) throw "Length of array is not more than 1!";
+  for (let a = 0; a < nums.length; a++) {
+    for (let b = 0; b < nums.length; b++){
+      if (a !== b && nums[a] + nums[b] === target) {
+        return true;
+      }
     }
-    return res;
+  }
+  return false;
 }
 
 // Do not edit this line;
